@@ -30,7 +30,8 @@ public class Film_03
 
         while (true)
         {
-            System.out.println("1 ile "+filmler.size()+" arasında bir film numarası giriniz.");
+            System.out.println("Listemizde "+filmler.size()+" film adı yer almaktadir.\n" +
+                    "1 - "+filmler.size()+" arasında bir numara girerek oyuna başlayabilirsiniz.");
             int filmNo = scan.nextInt();
             scan.nextLine();
             if (filmNo < 1 || filmNo > 8)

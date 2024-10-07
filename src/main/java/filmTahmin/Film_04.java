@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Film_03
+public class Film_04
 {
 
 /*
@@ -44,6 +44,7 @@ public class Film_03
                 String orjFilm = filmler.get(filmNo - 1);
                 String tahminFilm; // kullanıcıdan alınan film adi tahmin string'i
                 String tahminArrFilmAdi; // tahminde harf kontrolüne göre oluşturulan array'ı atadığımız string
+                String harfler;
                 int harfSAyisi = filmler.get(filmNo - 1).length();
                 int tahminHakki = harfSAyisi * 2;
                 int kalanHak = tahminHakki;
@@ -81,22 +82,25 @@ public class Film_03
 
                     else //tahmin harf sayisi dogru fakat film adi yanlis ise
                     {
+                        char[] tahminArr = new char[harfSAyisi];//Tahmini kontrol etmek için boş bir array oluşturuldu.
+                        char[] harfArr = new char[harfSAyisi]; //Doğru tahmin edilen harfleri atamak için olusturulan array
+
                         for (int j = 0; j < harfSAyisi; j++)  // doğru harf var mı kontrol et
                         {
                             for (int k = 0; k < harfSAyisi; k++) {
                                 if (orjFilm.charAt(j) == tahminFilm.charAt(k))
                                 {
-                                    System.out.println(tahminFilm.charAt(k)+" ");
                                     dogruHarf++; //tahmindeki kaç harf film adında var
+                                    harfArr[j] = tahminFilm.charAt(k);
                                     break;
-
+                                }else {
+                                    harfArr[j] = ' ';
                                 }
-
                             }
                         }
-
-
-                        char[] tahminArr = new char[harfSAyisi];//Tahmini kontrol etmek için boş bir array oluşturuldu.
+                        Arrays.sort(harfArr);
+                        harfler = new String(harfArr);
+                        System.out.println(harfler);
 
                         for (int j = 0; j < harfSAyisi; j++) //Tahminde doğru yerde harf var mı kontrol et
                         {
